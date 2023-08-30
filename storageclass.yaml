@@ -1,7 +1,7 @@
 apiVersion: storage.k8.io/v1
 kind: StorageClass
 metadata:
-    name: ebs-svc
+    name: ebs-sc
 
 provisioner: ebs.csi.aws.com
 
