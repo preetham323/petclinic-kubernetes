@@ -7,6 +7,6 @@ spec:
     app: petclinic-app
   ports:
   - port: 80
-    targetPort: petclinicapp-port
+    targetPort: app-port
     protocol: TCP
   type: LoadBalancer  
