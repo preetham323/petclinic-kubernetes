@@ -22,7 +22,7 @@ spec:
            containerPort: 8080
         env:
          - name: MYSQL_URL
-           value: jdbc:mysql://petclinicdb-service:3306/petclinic
+           value: "jdbc:mysql://petclinicdb-service:3306/petclinic"
          - name: MYSQL_USER
            valueFrom:
              secretKeyRef:
