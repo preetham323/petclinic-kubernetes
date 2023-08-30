@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinic-db
+  labels:
+    name: petclinic-db
+spec:
+  selector:
+    matchLabels:
+      app: petclinic-db
+  template:
+    metadata:
+      labels:
+        app: petclinic-db
+    spec:
+      containers:
+      - name: petclinic-db
+        image: mysql:8.0
+        ports:
+        - name: petclincdb-port
+          containerPort: 3306
+
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+             secretKeyRef:
+               key: rootpasswd
+               name: petclinic-secrets
+      nodeselector:
+        zone: us-east-2a
+
+      volumeMounts:
+         - name: persistent-storage
+           mountPath: /data
+      volumes:
+        - name: persistent-storage
+          persistentVolumeClaim: 
+              claimName: ebs-claim
+          
+       
+        

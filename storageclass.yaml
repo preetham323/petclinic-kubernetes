@@ -1,0 +1,11 @@
+apiVersion: storage.k8.io/v1
+kind: StorageClass
+metadata:
+    name: ebs-svc
+
+provisioner: ebs.csi.aws.com
+
+parameters:
+    type: gp2
+
+volumeBindingMode: WaitForFirstConsumer   

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinic-app
+  labels:
+     app: petclinic-app
+spec:
+  selector:
+    matchLabels:
+      app: petclinic-app
+  template:
+    metadata:
+      labels:
+        app: petclinic-app
+    spec:
+      containers:
+      - name: petclinic-app
+        image: preetham323/petclinicimg:latest
+        ports:
+        - name: petclinicapp-port
+          containerPort: 8080
+      initcontainers: 
+        - name: init-mydb
+          image: busybox
+          command: ['sh', '-c', 'until nslooku petclinic-db; do echo waiting for mydb; sleep 2; done; ']
