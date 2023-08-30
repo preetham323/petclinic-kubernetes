@@ -9,10 +9,12 @@ spec:
   selector:
     matchLabels:
       app: petclinic-app
+  strategy:
+    type: Recreate    
   template:
     metadata:
       labels:
-        app: petclinic-app
+        app: petclinic-app    
     spec:
       containers:
       - name: petclinic-app
