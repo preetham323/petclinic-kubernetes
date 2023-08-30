@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: petclinic-app
+  name: petclinic-deploy
   labels:
      app: petclinic-app
 spec:
