@@ -16,6 +16,9 @@ spec:
       containers:
       - name: petclinic-app
         image: preetham323/petclinicimg:latest
+        ports:
+         - name: petclinicapp-port
+           containerPort: 8080
         env:
          - name: MYSQL_URL
            value: jdbc:mysql://petclinic-db:3306/petclinicimg
@@ -29,6 +32,4 @@ spec:
               secretKeyRef:
                 key: password
                 name: petclinic-secret
-        ports:
-         - name: petclinicapp-port
-           containerPort: 8080
+        
