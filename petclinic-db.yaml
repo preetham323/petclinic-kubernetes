@@ -26,16 +26,15 @@ spec:
              secretKeyRef:
                key: rootpasswd
                name: petclinic-secrets
-      nodeselector:
-        zone: us-east-2a
+        volumeMounts:
+          - mountPath: /var/lib/mysql
+            name: persistent-storage
 
-      volumeMounts:
-         - name: persistent-storage
-           mountPath: /data
-      volumes:
-        - name: persistent-storage
-          persistentVolumeClaim: 
-              claimName: ebs-claim
           
-       
+      volumes: 
+       - name: persistent-storage
+         PersistentVolumeClaim: 
+           claimName: ebs-claim
+         
+         
         
