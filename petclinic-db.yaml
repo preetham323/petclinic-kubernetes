@@ -46,12 +46,10 @@ spec:
               name: petclinic-secrets     
         volumeMounts:
           - mountPath: /var/lib/mysql
-            name: persistent-storage
-
-          
+            name: persistent-storage      
       volumes: 
        - name: persistent-storage
-         PersistentVolumeClaim: 
+         persistentVolumeClaim: 
            claimName: ebs-claim
          
          
