@@ -28,22 +28,22 @@ spec:
           valueFrom:
              secretKeyRef:
                key: rootpasswd
-               name: petclinic-secrets
+               name: petclinic-secret
         - name: MYSQL_USER
           valueFrom:
             secretKeyRef:
               key: username
-              name: petclinic-secrets
+              name: petclinic-secret
         - name: MYSQL_PASSWORD
           valueFrom: 
             secretKeyRef:
               key: password
-              name: petclinic-secrets     
+              name: petclinic-secret    
         - name: MYSQL_DATABASE
           valueFrom:
             secretKeyRef:
               key: database
-              name: petclinic-secrets     
+              name: petclinic-secret     
         volumeMounts:
           - mountPath: /var/lib/mysql
             name: persistent-storage      
