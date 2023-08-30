@@ -5,9 +5,12 @@ metadata:
   labels:
     name: petclinic-db
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: petclinic-db
+  strategy: 
+    type: Recreate    
   template:
     metadata:
       labels:
@@ -26,6 +29,21 @@ spec:
              secretKeyRef:
                key: rootpasswd
                name: petclinic-secrets
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: petclinic-secrets
+        - name: MYSQL_PASSWORD
+          valueFrom: 
+            secretKeyRef:
+              key: password
+              name: petclinic-secrets     
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              key: database
+              name: petclinic-secrets     
         volumeMounts:
           - mountPath: /var/lib/mysql
             name: persistent-storage
