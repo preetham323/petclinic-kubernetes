@@ -6,6 +6,6 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  StorageClassName: ebs-sc
+  storageClassName: ebs-sc
   accessModes:
     - ReadWriteOnce
