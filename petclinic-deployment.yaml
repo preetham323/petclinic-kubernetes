@@ -30,4 +30,4 @@ spec:
                 key: password
                 name: petclinic-secret
         ports:
-          containerPort: 8080
+         - containerPort: 8080
