@@ -32,7 +32,3 @@ spec:
         ports:
         - name: petclinicapp-port
           containerPort: 8080
-      initcontainers: 
-        - name: init-mydb
-          image: busybox
-          command: ['sh', '-c', 'until nslooku petclinic-db; do echo waiting for mydb; sleep 2; done; ']
