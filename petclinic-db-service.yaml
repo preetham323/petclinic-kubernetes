@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: petclinicdb-service
+  name: petclinic-db
 spec:
   selector:
-    app: petclinicdb-service
+    app: petclinic-db
   ports:
   - port: 3306
+    protocol: TCP
     targetPort: petclincdb-port
   type: ClusterIP

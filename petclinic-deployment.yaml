@@ -5,7 +5,7 @@ metadata:
   labels:
      app: petclinic-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: petclinic-app
@@ -25,13 +25,13 @@ spec:
            containerPort: 8080   
         env:
          - name: MYSQL_URL
-           value: "jdbc:mysql://petclinicdb-service:3306/petclinic"
+           value: "jdbc:mysql://petclinic-db:3306/petclinic"
          - name: MYSQL_USER
            valueFrom:
              secretKeyRef:
                key: username
                name: petclinic-secret
-         - name: MYSQL_PASSWORD
+         - name: MYSQL_PASS
            valueFrom:
               secretKeyRef:
                 key: password
